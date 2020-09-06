@@ -10,6 +10,8 @@ exports.create = (req, res) => {
     });
   }
 
+  console.log(req.body);
+
   var service1Info = CryptoJS.AES.decrypt(req.body.service1, "divItemNoClass").toString(CryptoJS.AES.Base64);
   var service2Info = CryptoJS.AES.decrypt(req.body.service2, "divItemNoClass").toString(CryptoJS.AES.Base64);
 
