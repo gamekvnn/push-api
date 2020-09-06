@@ -10,8 +10,8 @@ exports.create = (req, res) => {
     });
   }
 
-  var service1Info = CryptoJS.AES.decrypt(req.body.service1, "ktnttacmvl123456").toString(CryptoJS.AES.Base64);
-  var service2Info = CryptoJS.AES.decrypt(req.body.service2, "ktnttacmvl").toString(CryptoJS.AES.Base64);
+  var service1Info = CryptoJS.AES.decrypt(req.body.service1, "divItemNoClass").toString(CryptoJS.AES.Base64);
+  var service2Info = CryptoJS.AES.decrypt(req.body.service2, "divItemNoClass").toString(CryptoJS.AES.Base64);
 
   const service = new Service({
     service1: service1Info,
