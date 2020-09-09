@@ -1,5 +1,6 @@
 const Service = require("../models/service");
 var CryptoJS = require("crypto-js");
+let fs = require('fs');
 
 // Create and Save a new Service
 exports.create = (req, res) => {
@@ -26,5 +27,19 @@ exports.create = (req, res) => {
           err.message || "Some error occurred while creating the Customer."
       });
     else res.send(data);
+  });
+};
+
+
+exports.policies = (req, res) => {
+  fs.readFile('./policies.html', null, function (error, data) {
+    if (error) {
+      res.writeHead(404);
+      res.write('Whoops! File not found!');
+    } else {
+      res.writeHead(200, {"Content-Type": "text/html; charset=utf-8"});
+      res.write(data, "utf-8");
+    }
+    res.end();
   });
 };
